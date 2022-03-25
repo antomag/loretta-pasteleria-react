@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import ItemCount from '../ItemCount/ItemCount';
+import CardCount from '../CardCount/CardCount';
+import './Card.css'
 
-export default function ImgMediaCard({img, titulo, precio}) {
+export default function ImgMediaCard({datos}) {
+  const {title, description, price, img} = datos
   const [changeButton, setChangeButton] = useState(true) //no tiene funcionalidad de momento
     
   const onAdd = (contador) => {
@@ -19,18 +20,20 @@ export default function ImgMediaCard({img, titulo, precio}) {
       <CardMedia
         component="img"
         image={img}
+        alt=""
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {titulo} 
+          {title} 
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        $ {precio}
+        $ {price}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        {description}
         </Typography>
       </CardContent>
-      <CardActions sx={{marginLeft:6}}>
-          <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-      </CardActions>
+      <CardCount stock={5} initial={1} onAdd={onAdd}/>
     </Card>
   );
 }
