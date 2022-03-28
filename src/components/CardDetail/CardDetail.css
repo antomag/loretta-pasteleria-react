@@ -1,0 +1,17 @@
+.cardDetail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    box-shadow: 0px 0px 3px 1px rgba(94,81,81,0.54);
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(94,81,81,0.54);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(94,81,81,0.54);
+}
+
+.imgCardDetail {
+    border: solid;
+}
+
+.infoCard{
+    margin-left: 10%;
+}
