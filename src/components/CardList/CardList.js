@@ -14,17 +14,16 @@ export default function CardList (){
     }
 
     useEffect(() => {
-        setProductos([])
         getProductos()
         .then( (resultado) => {findProductByCategory(resultado, category)})
         .catch( (error) => {console.log(`Error: `, error)})
         .finally(()=>{console.log(`Tarea finalizada.`)})
     }, [category])
     
-    const findProductByCategory = (category) => {
+    const findProductByCategory = (ListaProductos, category) => {
         return ListaProductos.map( (producto) => {
-            if(producto.category == category){
-                return setProductos(producto => [...producto, producto])
+            if(producto.category === category){
+                return setProductos(producto => [...productos, producto])
             }
         })
     }
