@@ -1,45 +1,33 @@
 import React, {useState, useEffect} from "react"
 import Card from "../Card/Card"
+import ListaProductos from '../../MockProductos'
+import { useParams } from "react-router-dom";
 
 export default function CardList (){
-    const ListaProductos = [
-        {
-            id: 1,
-            title: 'Tres Mousses',
-            description: '',
-            price: 1000,
-            img: '/img/1.jpg',
-        },
-        {
-            id: 2,
-            title: 'Marquise',
-            description: '',
-            price: 950,
-            img: '/img/2.jpg',
-        },
-        {
-            id: 3,
-            title: 'Rogel',
-            description: '',
-            price: 1200,
-            img: '/img/3.jpg',
-        }
-    ]
-
+    const { category } = useParams()
     const [productos, setProductos] = useState([])
 
     const getProductos = () => {
         return new Promise ( (resolve, reject) => {
-            setTimeout( () => {resolve(ListaProductos)}, 2000)
+            setTimeout( () => {resolve(ListaProductos)}, 1000)
         })   
     }
 
     useEffect(() => {
-        getProductos() 
-        .then( (resultado) => {setProductos(resultado)})
+        setProductos([])
+        getProductos()
+        .then( (resultado) => {findProductByCategory(resultado, category)})
         .catch( (error) => {console.log(`Error: `, error)})
         .finally(()=>{console.log(`Tarea finalizada.`)})
-    }, [])
+    }, [category])
+    
+    const findProductByCategory = (category) => {
+        return ListaProductos.map( (producto) => {
+            if(producto.category == category){
+                return setProductos(producto => [...producto, producto])
+            }
+        })
+    }
 
     return(
         <div className="gridProductos">

@@ -24,7 +24,7 @@ export default function CartWidget() {
         <Toolbar disableGutters>
             <Box sx={{ flexGrow: 0 }}>
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <img src='img/cartwhite.svg' />
+                  <img src='/img/cartwhite.svg' alt='Carrito de compras'/>
                 </IconButton>
               <Menu
                 sx={{ mt: '45px' }}

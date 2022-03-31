@@ -13,12 +13,12 @@ export default function CardCount({stock, initial, onAdd}){
     return(
         <CardActions>
             <div >
-                <button sx={{margin:5}} onClick={addToCart}>Agregar al carrito</button>
+                <button onClick={addToCart}>¡¡COMPRAR AHORA!!</button>
             </div>
             <ButtonGroup variant="outlined" aria-label="outlined button group">
-                <Button onClick={() => contador < stock ? setContador(contador +1) : null}>+</Button>
-                <Button>{contador}</Button>
                 <Button onClick={() => contador > initial ? setContador(contador -1) : null}>-</Button>
+                <Button>{contador}</Button>
+                <Button onClick={() => contador < stock ? setContador(contador +1) : null}>+</Button>
             </ButtonGroup>
         </CardActions>
     )
