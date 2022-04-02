@@ -1,11 +1,7 @@
-
 import CardList from '../CardList/CardList';
-import './CardListContainer.css';
 
-export default function ItemListContainer(){
+export default function CardListContainer(){
     return(
-        <div>
-            <CardList/>
-        </div>
+        <CardList />
     )
 }

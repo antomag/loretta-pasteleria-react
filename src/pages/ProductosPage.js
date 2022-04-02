@@ -1,11 +1,10 @@
-import CardListContainer from "../components/CardListContainer/CardListContainer"
 import { Container } from '@mui/material'
-import ButtonsFilter from "../components/ButtonsFilter/ButtonsFilter"
+import CardListContainer from "../components/CardListContainer/CardListContainer"
 
 export default function ProductosPage(){
     return(
         <Container>
-            <ButtonsFilter/>
+            
             <CardListContainer/>
         </Container>
     )

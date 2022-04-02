@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import CardDetail from '../CardDetail/CardDetail.js'
 import ListaProductos from "../../MockProductos.js"
 import { useParams } from "react-router-dom";
+import { LoadingButton } from '@mui/lab'
 
 export default function CardDetailConteiner(){
     const { id } = useParams()
@@ -14,29 +15,17 @@ export default function CardDetailConteiner(){
     const findProductByID = () => {
         return ListaProductos.map( (producto) => {
             if(producto.id == id){
-                return setProductoFind(producto)
+                setProductoFind(producto)
             }
         })
     }
 
-    /* ------------------------- */
-
-   /*  const [producto, setProducto] = useState([])
-
-    const getProducto = () => {
-        return new Promise ( (resolve, reject) => {
-            setTimeout( () => {resolve(ListaProductos)}, 2000)
-        })   
-    }
-
-    useEffect(() => {
-        getProducto() 
-        .then( (resultado) => {setProducto(resultado)})
-    }, []) */
-
     return(
         <div>
-            <CardDetail dataProduct={productoFind}/>
+            {/* <LoadingButton loading loadingIndicator="Loading..." variant="outlined">
+                OBTENIENDO DATOS
+            </LoadingButton> */}
+             <CardDetail dataProduct={productoFind}/>
         </div>
     )
 }

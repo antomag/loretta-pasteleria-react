@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import './CardDetail.css'
 import CardCount from '../CardCount/CardCount';
 
@@ -24,6 +24,5 @@ export default function CardDetail({dataProduct}){
                 <CardCount stock={5} initial={1} onAdd={onAdd}/>
             </div>
         </div>
-        
     )
 }

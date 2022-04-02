@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          {/* <Route path='/loretta-pasteleria' element={<HomePage/>}/> */} {/* ruta para logo */}
+          <Route path='/' element={<HomePage/>}/> {/* ruta para logo  */} 
           <Route path='/' element={<HomePage/>}/>
           <Route path='/productos' element={<ProductosPage/>}/>
           <Route path='/nosotros' element={<NosotrosPage/>}/>

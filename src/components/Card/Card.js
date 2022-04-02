@@ -7,7 +7,7 @@ export default function ImgMediaCard({datos}) {
   const {title, price, img, id} = datos
 
   return (
-    <Card sx={{ maxWidth: 300, margin:5 }}>
+    <Card sx={{ maxWidth: 350}}>
       <Link to={`/productos/${id}`}>
         <CardActionArea>
           <CardMedia
