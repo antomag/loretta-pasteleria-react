@@ -1,9 +1,14 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Logo() {
+    const navigate = useNavigate()
+
+    const goHome = () => {
+        navigate(`/`)
+    }
+
     return(
-        //no puedo linkear el logo porqe me tira un error de consola pathname(? y no se que es.
-        <div style={{margin: '5px'}}>
+        <div style={{margin: '5px'}} onClick={goHome}>
             <img src='/img/logo.png' alt="Logo Loretta Pasteleria" style={{height: '10vh'}} />
         </div>
     )

@@ -15,7 +15,9 @@ export default function CardDetailConteiner(){
     const findProductByID = () => {
         return ListaProductos.map( (producto) => {
             if(producto.id == id){
-                setProductoFind(producto)
+                setTimeout( () => {
+                    return setProductoFind(producto);
+                }, 1500)
             }
         })
     }
@@ -25,7 +27,12 @@ export default function CardDetailConteiner(){
             {/* <LoadingButton loading loadingIndicator="Loading..." variant="outlined">
                 OBTENIENDO DATOS
             </LoadingButton> */}
-             <CardDetail dataProduct={productoFind}/>
+            {/* {
+                setTimeout(function() {
+                    return <CardDetail dataProduct={productoFind}/>;
+                }, 1500)
+            } */}
+            <CardDetail dataProduct={productoFind}/>
         </div>
     )
 }
