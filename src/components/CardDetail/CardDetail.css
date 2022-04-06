@@ -11,8 +11,7 @@
 
 .imgCardDetail {
     border: solid;
+    overflow: auto;
 }
 
-.infoCard{
-    margin-left: 20%;
-}
+.MuiCardActions-root.MuiCardActions-spacing.css-1t6e9jv-MuiCardActions-root {flex-direction: column;flex-wrap: wrap;}

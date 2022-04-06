@@ -13,8 +13,9 @@ export default function CardCount({stock, initial, onAdd}){
     return(
         <CardActions>
             <div >
-                <button onClick={addToCart}>¡¡COMPRAR AHORA!!</button>
+                <Button onClick={addToCart}>¡COMPRAR AHORA!</Button>
             </div>
+            <br></br>
             <ButtonGroup variant="outlined" aria-label="outlined button group">
                 <Button onClick={() => contador > initial ? setContador(contador -1) : null}>-</Button>
                 <Button>{contador}</Button>

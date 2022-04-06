@@ -9,6 +9,7 @@ import NosotrosPage from './pages/NosotrosPage';
 import DetailPage from  './pages/DetailPage';
 import NotFoundPage from './pages/NotFound';
 import CardList from './components/CardList/CardList';
+import Carrito from './components/CartWidget/Carrito';
 
 function App() {
   return (
@@ -16,13 +17,13 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route path='/' element={<HomePage/>}/> {/* ruta para logo  */} 
           <Route path='/' element={<HomePage/>}/>
           <Route path='/productos' element={<ProductosPage/>}/>
           <Route path='/nosotros' element={<NosotrosPage/>}/>
-          <Route path='/:category/' element={<CardList/>}/>
+          <Route path='/:category' element={<CardList/>}/>
           <Route path='/productos/:id' element={<DetailPage/>}/>
           <Route path='*' element={<NotFoundPage/>}/>
+          <Route path='/cart' element={<Carrito/>}/>
         </Routes>
       </BrowserRouter>
     </div>
