@@ -8,7 +8,6 @@ import ButtonsFilter from '../ButtonsFilter/ButtonsFilter'
 export default function CardList (){
     const { category } = useParams()
     const [productos, setProductos] = useState([])
-    console.log(productos)
 
     const getProductos = () => {
         return new Promise ( (resolve, reject) => {

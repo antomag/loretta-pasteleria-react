@@ -32,7 +32,7 @@ export default function CardDetailConteiner(){
                     return <CardDetail dataProduct={productoFind}/>;
                 }, 1500)
             } */}
-            <CardDetail dataProduct={productoFind}/>
+            <CardDetail datos={productoFind}/>
         </div>
     )
 }

@@ -1,13 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import CardActions from '@mui/material/CardActions';
+import CartContext from '../../context/CartContext'
 
-export default function CardCount({stock, initial, onAdd}){
+export default function CardCount({stock, initial, dataProduct}){
     const [ contador, setContador ] = useState(initial);
+    const { addProductToCart } = useContext(CartContext)
 
     const addToCart = () => {
-        onAdd(contador)
+        addProductToCart(dataProduct)
+        setContador(contador +1)  //dato que tengo qe mostrar en el carrito
+        console.log(`se agregaron ${contador} producto/s correctamente`)
     }
 
     return(
@@ -24,3 +28,4 @@ export default function CardCount({stock, initial, onAdd}){
         </CardActions>
     )
 }
+
