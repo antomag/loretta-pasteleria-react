@@ -29,6 +29,7 @@ export default function CartWidget() {
         <Box sx={{ flexGrow: 0 }}>
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <img src='/img/cartwhite.svg' alt='Carrito de compras'/>
+              <p style={{color:'white'}}>{cartProductos.length}</p>
             </IconButton>
             <Menu
                 sx={{ mt: '45px' }}
@@ -46,14 +47,13 @@ export default function CartWidget() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <p className='tituloCarrito'>CARRITO DE COMPRAS</p>
-                <hr></hr>
+                <p className='tituloCartWidget'>CARRITO DE COMPRAS</p>
                 <Divider>
                 {cartProductos.map( (cartProducto) => {
                   return(
                     <MenuItem className='item-cart-modal' key={cartProducto.id} onClick={handleCloseUserMenu}>
                       <div className='item-cart-modal__img'>
-                          <img src={cartProducto.img} /> 
+                          <img src={`${cartProducto.img}`}  alt="imagen producto"/> 
                       </div>
                       <div className='item-cart-modal__info'>
                           <p>{cartProducto.title}</p>
@@ -66,7 +66,8 @@ export default function CartWidget() {
                   ) } ) 
                 }
                 </Divider>
-              </Menu>
+                <button className='botonIniciarCompra' >INICIAR COMPRA</button>
+            </Menu>
         </Box>
       </Toolbar>
     );

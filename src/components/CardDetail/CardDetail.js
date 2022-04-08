@@ -1,42 +1,44 @@
-import React, {useState, useContext} from "react";
+import React, {useState,useEffect, useContext} from "react";
 import './CardDetail.css'
 import CardCount from '../CardCount/CardCount';
-import { Container , Button} from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Container} from '@mui/material'
 import CartContext from "../../context/CartContext";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function CardDetail({datos}){
-    const {title, description, price, img, quantity } = datos
+    const {title, description, price, img} = datos
     const [ contador, setContador ] = useState(1);
-    const [ changeButton, setChangeButton ] = useState(true)
     const { addProductToCart } = useContext(CartContext)
+    /* const [loading, setLoading] = useState(true) */
 
     const addToCart = () => {
         addProductToCart(datos)
-        setContador(quantity = contador +1)  //dato que tengo qe mostrar en el carrito
+        setContador(contador +1)  //dato que tengo qe mostrar en el carrito
         console.log(`se agregaron ${contador} producto/s correctamente`)
-        setChangeButton(false)
     }                         
 
+   /*  useEffect(() => {
+        setLoading(true)
+        // cambiar a false
+    }, ); */
+
     return(
-        <Container>
-            <div className="cardDetail">
-                <img src={img} alt="." className="imgCardDetail"/>
-                <div className="infoCard">
-                    <h1>{title}</h1>
-                    <h2>${price}</h2>
-                    <p>DETALLE</p>
-                    <p>{description}</p>
-                    <br></br>
-                    {changeButton ? (
-                        <Button onClick={addToCart} datos={datos}>¡COMPRAR AHORA!</Button>
-                    ) : (
-                        <Button><Link to={`/cart`}>TERMINAR COMPRA</Link></Button>
-                    ) }
-                </div>
-            </div>
-        </Container>
+        <div>
+            <Container>
+                    <div className="cardDetail">
+                        <img src={img} alt="." className="imgCardDetail"/>
+                        <div className="infoCard">
+                            <h1>{title}</h1>
+                            <h2>${price}</h2>
+                            <p>DETALLE</p>
+                            <p>{description}</p>
+                            <br></br>
+                            <CardCount stock={5} initial={1} onClick={addToCart} datos={datos} />
+                        </div>
+                    </div>
+            </Container>
+        </div>
     )
 }
 
-{/* <CardCount stock={5} initial={1} onAdd={onAdd} dataProduct={dataProduct}/> */}
+{/* <Button onClick={addToCart} datos={datos}>¡COMPRAR AHORA!</Button> */}

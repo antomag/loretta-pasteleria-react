@@ -6,20 +6,9 @@ const CartProvider = ({children}) => {
     const [cartProductos, setCartProductos] = useState([])
 
     const addProductToCart = (producto) => {
-        isInCart()
-        setCartProductos(cartProductos => [...cartProductos, producto])
-        console.log("carrito", cartProductos)
-
-        //arreglo sin objetos duplicados
-        /* const cartSinDuplicados = [...new Set(cartProductos)]
-        console.log("sin duplicados",cartSinDuplicados)*/
+        let existe = cartProductos.find( cartProducto => cartProducto.id === producto.id )
+        !existe && setCartProductos(cartProductos => [...cartProductos, producto])
     } 
-
-    const isInCart = (id) => {
-        const existe = cartProductos.find((e) => e.id === id);
-        console.log("Existe", existe)
-    };
-
 
     const data = {
         cartProductos,

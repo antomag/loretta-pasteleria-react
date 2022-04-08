@@ -1,0 +1,19 @@
+.itemProducto{
+    display:flex;
+    flex-direction: row;align-items: center;justify-content: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.imagenCartPage{
+    width: 10vw;
+}
+
+.tituloCarrito{
+    -webkit-text-stroke: 1px rgb(84, 84, 84);
+    color: transparent;
+    font-size: 25px;
+   
+}
