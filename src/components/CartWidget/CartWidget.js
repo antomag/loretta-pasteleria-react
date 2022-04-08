@@ -51,12 +51,13 @@ export default function CartWidget() {
                 <Divider>
                 {cartProductos.map( (cartProducto) => {
                   return(
-                    <MenuItem className='item-cart-modal' key={cartProducto.id} onClick={handleCloseUserMenu}>
+                    <MenuItem key={cartProducto.id} className='item-cart-modal' onClick={handleCloseUserMenu}>
                       <div className='item-cart-modal__img'>
                           <img src={`${cartProducto.img}`}  alt="imagen producto"/> 
                       </div>
                       <div className='item-cart-modal__info'>
                           <p>{cartProducto.title}</p>
+                          {/* <p>{cartProducto.contador}</p> */}
                           <span>$ {cartProducto.price}</span>
                       </div>
                       <div className='item-cart-modal__action'>
