@@ -15,7 +15,7 @@ export default function CardCount({stock, initial, onAdd}){
     }
 
     return(
-        <CardActions>
+        <CardActions >
             {changeButton ? (
                 <div>
                     <ButtonGroup className="estiloBoton" color="inherit" variant="outlined" aria-label="outlined button group">
