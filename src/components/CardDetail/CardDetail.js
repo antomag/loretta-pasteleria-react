@@ -1,22 +1,33 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './CardDetail.css'
 import CardCount from '../CardCount/CardCount';
-import { Container} from '@mui/material'
+import { Container } from '@mui/material'
 import CartContext from '../../context/CartContext'
+import LinearProgress from '@mui/material/LinearProgress';
 
 export default function CardDetail({datos}){
     const {title, description, price, img, id} = datos
     const { addProductToCart } = useContext(CartContext)
+    const [ loading, setLoading ] = useState(true)
 
     const onAdd = (contador) =>{
-        addProductToCart(datos ,contador)
-        console.log("add cart producto", datos)
-        console.log("add cart cantidad", contador)
+        addProductToCart({...datos, quantity: contador})
+        /* console.log("producto", datos.id) //id del producto seleccionado
+        console.log("quantity", contador) //cantidad de la compra en ese momento */
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 1500);
+    }, []);
 
     return(
         <div>
-            <Container>
+            {loading ? 
+                (<div style={{margin:250}}><LinearProgress color="success"/></div>)
+            :
+                (<Container>
                     <div className="cardDetail">
                         <img src={img} alt="." className="imgCardDetail"/>
                         <div key={id} className="infoCard">
@@ -28,7 +39,8 @@ export default function CardDetail({datos}){
                             <CardCount stock={5} initial={1} onAdd={onAdd} datos={datos} />
                         </div>
                     </div>
-            </Container>
+                </Container>)
+            }
         </div>
     )
 }

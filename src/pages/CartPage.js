@@ -3,6 +3,7 @@ import React, {useContext} from 'react'
 import CartContext from '../context/CartContext';
 import './CartPage.css'
 import DeleteIcon from '@mui/icons-material/Delete';
+import {Link } from 'react-router-dom'
 
 
 export default function CartPage() {
@@ -18,19 +19,18 @@ export default function CartPage() {
                             <Divider></Divider>
                             <div key={id} className="itemProducto">
                                 <img src={`./${img}`} alt="imagen producto" className="imagenCartPage"/> 
-                                <p>{title}</p>
+                                <p><span>{title}</span></p>
                                 <p>{quantity}</p>
                                 <span>${price}</span>
-                                <div className='item-cart-modal__action'>
-                                    <button onClick={() => deleteProducto(cartProducto)}>
-                                        <DeleteIcon/>
-                                    </button>
-                                </div>
+                                <button style={{marginLeft:40}} onClick={() => deleteProducto(cartProducto)}>
+                                    <DeleteIcon/>
+                                </button>
                             </div>
                         </div>
                     ) } ) 
                 }
             <button onClick={clearCart}>VACIAR CARRITO</button>
+            <button><Link to={`/productos`}>SEGUIR COMPRANDO</Link></button>
         </div>
     )
 }

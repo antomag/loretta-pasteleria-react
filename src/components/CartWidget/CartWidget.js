@@ -4,22 +4,27 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import CartContext from '../../context/CartContext';
 import '../CartWidget/CartWidget.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import Divider from '@mui/material/Divider';
+import {Link} from 'react-router-dom'
 
 
 export default function CartWidget() {
-  const { cartProductos } = useContext(CartContext)
+    const { cartProductos, deleteProducto, clearCart } = useContext(CartContext)
+    const [ loading, setLoading ] = useState(true)
 
+    const iniciarCompra = () =>{
+      setLoading(false)
+    }
+   
+    //logica modal cart
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
     const handleOpenUserMenu = (event) => {
       setAnchorElUser(event.currentTarget);
     };
-
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
     };
@@ -48,30 +53,38 @@ export default function CartWidget() {
                 onClose={handleCloseUserMenu}
               >
                 <p className='tituloCartWidget'>CARRITO DE COMPRAS</p>
-                <Divider>
-                {cartProductos.map( (cartProducto) => {
-                  return(
-                    <MenuItem key={cartProducto.id} className='item-cart-modal' onClick={handleCloseUserMenu}>
-                      <div className='item-cart-modal__img'>
-                          <img src={`${cartProducto.img}`}  alt="imagen producto"/> 
-                      </div>
-                      <div className='item-cart-modal__info'>
-                          <p>{cartProducto.title}</p>
-                          {/* <p>{cartProducto.contador}</p> */}
-                          <span>$ {cartProducto.price}</span>
-                      </div>
-                      <div className='item-cart-modal__action'>
-                          <DeleteIcon />
-                      </div>
-                    </MenuItem>
-                  ) } ) 
+                {
+                  loading ?
+                  (
+                    <button className='botonIniciarCompra' onClick={iniciarCompra}><Link to={`/productos`}>INICIAR COMPRA</Link></button>
+                  ) : (
+                    <div className='modalCart'>
+                        {cartProductos.map( (cartProducto) => {
+                          return(
+                            <div>
+                              <Divider></Divider>
+                              <MenuItem key={cartProducto.id} className='item-cart-modal' onClick={handleCloseUserMenu}>
+                                <div>
+                                    <img className='detalleImg' src={`${cartProducto.img}`}  alt="imagen producto"/> 
+                                </div>
+                                <div className='detalleProducto'>
+                                    <p>{cartProducto.title}</p>
+                                    <p>Cant:{cartProducto.quantity}</p>
+                                    <span>${cartProducto.price}</span>
+                                </div>
+                                <button style={{margin:20}} onClick={() => deleteProducto(cartProducto)}>
+                                  <DeleteIcon/>
+                                </button>
+                              </MenuItem>
+                            </div>
+                          ) } ) 
+                        }
+                      <button className='botonIniciarCompra' onClick={clearCart}>VACIAR CARRITO</button>
+                    </div>
+                  )
                 }
-                </Divider>
-                <button className='botonIniciarCompra' >INICIAR COMPRA</button>
             </Menu>
         </Box>
       </Toolbar>
     );
   };
-
-        
