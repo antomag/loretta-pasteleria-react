@@ -5,7 +5,7 @@ const ListaProductos = [
         description: 'Torta de tres capas de chocolate: blanco, con leche y amargo.',
         price: 1000,
         img: '/img/1.jpg',
-        category: 'postre',
+        category: 'postres',
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const ListaProductos = [
         description: 'Brownie con dulce de leche y merengue.',
         price: 950,
         img: '/img/2.jpg',
-        category: 'postre ',
+        category: 'postres',
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const ListaProductos = [
         description: 'Torta de varias capas rellenas de dulce de leche y decoracion de merengue.',
         price: 1200,
         img: '/img/3.jpg',
-        category: 'postre',
+        category: 'postres',
     },
     {
         id: 4,

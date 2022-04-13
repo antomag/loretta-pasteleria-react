@@ -22,19 +22,29 @@ const CartProvider = ({children}) => {
         return cartProductos.some(producto => producto.id === id)
     }
 
-    const deleteProducto = (producto) =>{
-        setCartProductos(cartProductos.filter( cartProducto => cartProducto.id !== producto.id))
+    const deleteProducto = (id) =>{
+        setCartProductos(cartProductos.filter( cartProducto => cartProducto.id !== id))
     }
 
     const clearCart = () => {
         setCartProductos([]) 
     }
 
+    const calcularTotal = () => {
+        return cartProductos.reduce((acum, producto ) => acum = acum + (producto.price * producto.quantity), 0)
+    }
+
+    const cantProdCarrito = () => {
+        return cartProductos.reduce((acum, producto ) => acum += producto.quantity, 0)
+    } 
+
     const data = {
         cartProductos,
         addProductToCart,
         deleteProducto,
-        clearCart
+        clearCart, 
+        calcularTotal,
+        cantProdCarrito
     }
 
     return(
