@@ -1,20 +1,26 @@
 import React, {useState, useEffect} from "react"
 import Card from "../Card/Card"
-import ListaProductos from '../../MockProductos'
 import { useParams } from "react-router-dom";
 import './CardList.css';
 import ButtonsFilter from '../ButtonsFilter/ButtonsFilter'
 import LinearProgress from '@mui/material/LinearProgress';
+import db from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 export default function CardList (){
     const { category } = useParams()
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const getProductos = () => {
-        return new Promise ( (resolve, reject) => {
-            setTimeout( () => {resolve(ListaProductos)}, 1500)
-        })   
+    const getProductos = async () => {
+        const itemsCollection = collection(db , 'productos')
+        const productosSnapshot = await getDocs(itemsCollection)
+        const listaProductos = productosSnapshot.docs.map( (doc) => {
+            let producto = doc.data()
+            producto.id = doc.id
+            return producto
+        })
+        return listaProductos
     }
 
     useEffect(() => {

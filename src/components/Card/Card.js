@@ -12,7 +12,7 @@ export default function ImgMediaCard({datos}) {
         <CardActionArea>
           <CardMedia
             component="img"
-            image={img}
+            image={`/img/${img}`}
             alt=""
           />
           <CardContent>

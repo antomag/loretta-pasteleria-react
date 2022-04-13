@@ -12,8 +12,6 @@ export default function CardDetail({datos}){
 
     const onAdd = (contador) =>{
         addProductToCart({...datos, quantity: contador})
-        /* console.log("producto", datos.id) //id del producto seleccionado
-        console.log("quantity", contador) //cantidad de la compra en ese momento */
     }
 
     useEffect(() => {
@@ -29,11 +27,11 @@ export default function CardDetail({datos}){
             :
                 (<Container>
                     <div className="cardDetail">
-                        <img src={img} alt="." className="imgCardDetail"/>
+                        <img src={`/img/${img}`} alt="." className="imgCardDetail"/>
                         <div key={id} className="infoCard">
                             <h1>{title}</h1>
                             <h2>${price}</h2>
-                            <p>DETALLE</p>
+                            <p style={{textDecorationLine:'underline'}}>DETALLE</p>
                             <p>{description}</p>
                             <br></br>
                             <CardCount stock={5} initial={1} onAdd={onAdd} datos={datos} />
