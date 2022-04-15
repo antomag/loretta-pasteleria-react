@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardContent, CardMedia, Typography, CardActionArea, Button } from '@mui/material';
+import {Card, CardContent, CardMedia, Typography, CardActionArea} from '@mui/material';
 import './Card.css'
 import { Link } from 'react-router-dom';
 

@@ -60,16 +60,16 @@ export default function CartWidget() {
                     <div className='modalCart'>
                         {cartProductos.map( (cartProducto) => {
                           return(
-                            <div>
+                            <div >
                               <Divider></Divider>
                               <MenuItem key={cartProducto.id} className='item-cart-modal' onClick={handleCloseUserMenu}>
                                 <div>
-                                    <img className='detalleImg' src={`${cartProducto.img}`}  alt="imagen producto"/> 
+                                    <img className='detalleImg' src={`/img/${cartProducto.img}`}  alt="imagen producto"/> 
                                 </div>
                                 <div className='detalleProducto'>
                                     <p>{cartProducto.title}</p>
                                     <p>Cant:{cartProducto.quantity}</p>
-                                    <span>${cartProducto.price}</span>
+                                    <p>${cartProducto.price}</p>
                                 </div>
                                 <button style={{margin:20}} onClick={() => deleteProducto(cartProducto)}>
                                   <DeleteIcon/>
