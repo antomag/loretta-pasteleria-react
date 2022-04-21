@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react"
+import { useParams , useNavigate} from "react-router-dom";
+//components
 import CardDetail from '../CardDetail/CardDetail.js'
-import { useParams } from "react-router-dom";
+//firebase
 import { doc, getDoc } from "firebase/firestore";
 import db from "../../firebase.js";
-import { useNavigate } from 'react-router-dom';
 
 export default function CardDetailConteiner(){
     const { id } = useParams()
@@ -29,8 +30,6 @@ export default function CardDetailConteiner(){
     }, [id]);
 
     return(
-        <div>
-            <CardDetail datos={productoFind}/>
-        </div>
+        <CardDetail datos={productoFind}/>
     )
 }

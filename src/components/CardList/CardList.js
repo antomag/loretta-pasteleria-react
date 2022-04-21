@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from "react"
-import Card from "../Card/Card"
 import { useParams } from "react-router-dom";
+//css
 import './CardList.css';
+//components
+import Card from "../Card/Card"
 import ButtonsFilter from '../ButtonsFilter/ButtonsFilter'
+//mui
 import LinearProgress from '@mui/material/LinearProgress';
+//firebase
 import db from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 

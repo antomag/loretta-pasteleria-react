@@ -9,4 +9,5 @@ const ModalCustom = ({handleClose, open , children}) => {
         </>
     )
 }
+
 export default ModalCustom

@@ -1,7 +1,9 @@
 import React from "react";
-import {Card, CardContent, CardMedia, Typography, CardActionArea} from '@mui/material';
-import './Card.css'
 import { Link } from 'react-router-dom';
+//mui
+import {Card, CardContent, CardMedia, Typography, CardActionArea} from '@mui/material';
+//css
+import './Card.css'
 
 export default function ImgMediaCard({datos}) {
   const {title, price, img, id} = datos

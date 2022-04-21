@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import CardActions from '@mui/material/CardActions';
 import { Link } from 'react-router-dom'
+//mui
+import { Button, ButtonGroup, CardActions } from '@mui/material';
+//css
 import './CardCount.css'
 
 export default function CardCount({stock, initial, onAdd}){

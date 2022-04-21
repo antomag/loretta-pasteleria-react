@@ -1,9 +1,13 @@
 import React, {useContext, useEffect, useState} from "react";
+//mui
+import { Container, LinearProgress } from '@mui/material'
+//css
 import './CardDetail.css'
+//components
 import CardCount from '../CardCount/CardCount';
-import { Container } from '@mui/material'
+//context
 import CartContext from '../../context/CartContext'
-import LinearProgress from '@mui/material/LinearProgress';
+
 
 export default function CardDetail({datos}){
     const {title, description, price, img, id} = datos
@@ -21,7 +25,7 @@ export default function CardDetail({datos}){
     }, []);
 
     return(
-        <div>
+        <>
             {loading ? 
                 (<div style={{margin:250}}><LinearProgress color="success"/></div>)
             :
@@ -39,6 +43,6 @@ export default function CardDetail({datos}){
                     </div>
                 </Container>)
             }
-        </div>
+        </>
     )
 }

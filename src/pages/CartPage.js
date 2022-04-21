@@ -1,10 +1,15 @@
-import { Container, Divider } from '@mui/material';
 import React, {useContext, useState} from 'react'
-import CartContext from '../context/CartContext';
-import './CartPage.css'
-import DeleteIcon from '@mui/icons-material/Delete';
 import {Link } from 'react-router-dom'
+//mui
+import { Container, Divider } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+//components
 import ModalCustom from '../components/Modal/Modal';
+//css
+import './CartPage.css'
+//context
+import CartContext from '../context/CartContext';
+//firebase
 import db from '../firebase'
 import { addDoc, collection } from 'firebase/firestore';
 
@@ -71,12 +76,12 @@ export default function CartPage() {
                 </div>)
             }
             {
-            cartProductos.map( (cartProducto) => {
+            cartProductos.map( (cartProducto, i) => {
                     const { id, img, title, price, quantity} = cartProducto
                     return(
-                        <>
+                        <li style={{listStyle: 'none'}} key={i}>
                             <Divider></Divider>
-                            <div key={id} className="itemProducto">
+                            <div className="itemProducto">
                                 <img src={`/img/${img}`} alt="imagen producto" className="imagenCartPage"/> 
                                 <h3>{title}</h3>
                                 <p>Cantidad: {quantity}</p>
@@ -85,7 +90,7 @@ export default function CartPage() {
                                     <DeleteIcon/>
                                 </button>
                             </div>
-                        </>
+                        </li>
                 ) } ) 
             }
             {
@@ -107,13 +112,13 @@ export default function CartPage() {
                     successOrder ?
                     (
                         <div style={{textAlign:'center', margin:40}}>
-                            <h2>Orden generada correctamente!!</h2>
+                            <h2>Pedido fue registrado correctamente!!</h2>
                             <p>Su numero de orden es: {successOrder}</p>
                             <button style={{margin:40}}><Link to='/' onClick={clearCart}>ACEPTAR</Link></button>
                         </div>
                     ) : (
                         <>
-                            <h2 style={{textAlign:'center'}}>FORMULARIO</h2>
+                            <h2 style={{textAlign:'center'}}>FORMULARIO CONFIRMACION COMPRA</h2>
                             <form onSubmit={handleSubmit}>
                                 <input className='inputForm' type="text" name='name' placeholder='Nombre' 
                                     onChange={handleChange} 
@@ -139,9 +144,3 @@ export default function CartPage() {
         </Container>
     )
 }
-
-
-
-
-
-

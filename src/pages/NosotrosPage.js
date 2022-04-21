@@ -1,4 +1,6 @@
+//mui
 import { Container } from "@mui/material";
+//css
 import './NosotrosPage.css'
 
 export default function NosotrosPage(){
