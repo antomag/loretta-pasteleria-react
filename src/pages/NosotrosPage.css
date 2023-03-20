@@ -1,0 +1,26 @@
+article {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: justify;
+    color: black;
+    background-color: #dbefe6;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.68); 
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.68);
+}
+
+.fotoArticulo {
+    border: solid 1.5px black;
+    margin: 20px;
+    width: 300px;
+    max-width: 100%;
+    height: 350px auto;
+    object-fit: cover;
+}
+
+.mark, mark {
+    padding: 0.2em;
+    background-color: #fcf8e3;
+}

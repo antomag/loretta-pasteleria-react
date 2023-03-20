@@ -1,0 +1,19 @@
+.cardDetail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #ddf1e8;
+    
+    box-shadow: 0px 0px 3px 1px rgba(94,81,81,0.54);
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(94,81,81,0.54);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(94,81,81,0.54);
+    margin-top: 30px;
+}
+
+.imgCardDetail {
+    border: solid 1px;
+    width: 40%;
+    margin: 10px;
+}
+
+.MuiCardActions-root.MuiCardActions-spacing.css-1t6e9jv-MuiCardActions-root {flex-direction: column;flex-wrap: wrap;}

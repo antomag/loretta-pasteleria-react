@@ -1,0 +1,16 @@
+.footer{
+    width: 100%;
+    height: 3vh;
+    font-family: monospace;
+    background-color: #f2e9d4;
+    margin-top: 15px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.textoFooter{
+    font-size: 13px;
+    margin: 0px;
+}
