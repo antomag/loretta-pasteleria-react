@@ -11,8 +11,6 @@ Antonella Magnano
 -   Material UI (Creación de componentes) [MUI](https://mui.com/)
 -   MUI icons (Icons)
 
-## GitHub
-El siguiente enlace proporcionara el proyecto completo en el repositorio -> [ Repositorio GitHub](https://github.com/antomag/loretta-pasteleria-react)
 
 ##  Uso de la app en forma local
 ### `npm start`
